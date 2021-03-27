@@ -12,12 +12,30 @@ public:
 	void del_element_front(list<T>& list);
 	int equality_test(list<T> list_first, list<T> list_second);
 	void add_element_in_pos(list<T>& list, T element, int pos);
+	void del_element_in_pos(list<T>& list, int pos);
 private:
 	typename list<T>::iterator Iter;
 	typename list<T>::iterator Iter2;
+	typename list<T>::iterator Iter3;
 	typename list<T>::iterator Class_Iter; // ипользовать дл€ контейнера из класса
 	list<T> Class_MyList;
 };
+
+template<typename T>
+inline void Shaker<T>::del_element_in_pos(list<T>& list, int pos)
+{
+	setlocale(LC_ALL, "ru");
+	if (list.empty())
+	{
+		cout << "—писок пуст";
+	}
+	else
+	{
+		Iter3 = list.begin();
+		for (int i = 1; i < pos; Iter3++);
+		list.erase(Iter3);
+	}
+}
 
 template<typename T>
 inline void Shaker<T>::add_element_in_pos(list<T>& list, T element, int pos)

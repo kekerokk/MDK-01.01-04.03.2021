@@ -29,4 +29,7 @@ int main()
 	b.add_element_in_pos(MyList, 4, 2);
 	cout << "Вывод...\n";
 	b.print(MyList);
+	cout << "Удаление элемента с определенной позицией из списка...\n";
+	b.del_element_in_pos(MyList, 1);
+	b.print(MyList);
 }
