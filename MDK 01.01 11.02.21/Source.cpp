@@ -32,4 +32,6 @@ int main()
 	cout << "Удаление элемента с определенной позицией из списка...\n";
 	b.del_element_in_pos(MyList, 1);
 	b.print(MyList);
+	cout << "Сравнение списков на неравенство";
+	b.inequality_test(MyList, MyList2);
 }

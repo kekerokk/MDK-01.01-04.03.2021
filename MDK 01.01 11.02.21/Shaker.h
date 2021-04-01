@@ -13,6 +13,7 @@ public:
 	int equality_test(list<T> list_first, list<T> list_second);
 	void add_element_in_pos(list<T>& list, T element, int pos);
 	void del_element_in_pos(list<T>& list, int pos);
+	int inequality_test(list<T> list_one, list<T> list_two);
 private:
 	typename list<T>::iterator Iter;
 	typename list<T>::iterator Iter2;
@@ -35,6 +36,38 @@ inline void Shaker<T>::del_element_in_pos(list<T>& list, int pos)
 		for (int i = 1; i < pos; Iter3++);
 		list.erase(Iter3);
 	}
+}
+
+template<typename T>
+inline int Shaker<T>::inequality_test(list<T> list_one, list<T> list_two)
+{
+	setlocale(LC_ALL,"ru");
+	if (list_one.size() != list_two.size())
+	{
+		cout << "\nСписки успешно неравны\n";
+		return 0;
+	}
+	else
+	{
+		int size;
+		if (list_one.size() > list_two.size())
+			size = list_one.size();
+		else
+			size = list_two.size();
+		Iter = list_one.begin();
+		Iter2 = list_two.begin();
+		for (int i = 0; i < size; i++,Iter++,Iter2++)
+		{
+			if (*Iter != *Iter2)
+			{
+				cout << "\nСписки успешно неравны\n";
+				return 0;
+			}
+		}
+		cout << "\nСписки неуспешно равны\n";
+		return 0;
+	}
+	return 0;
 }
 
 template<typename T>
